@@ -20,5 +20,5 @@ It has the following main features:
 </br>
 
 **Admin comments view**
-<img src="https://github.com/maxoyn/PhotoXD/blob/master/screenshots/admin_comments_veiw.png">
+<img src="https://github.com/maxoyn/PhotoXD/blob/master/screenshots/admin_comments_view.png">
 </br>
