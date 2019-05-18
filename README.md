@@ -1,7 +1,7 @@
 # PhotoXD
 A gallery website using .NET MVC5 </br>
 </br>
-It has the following features:
+It has the following main features:
  * Responsive design (bootstrap)
  * CRUD with database
  * Account roles (normal user and admin)
