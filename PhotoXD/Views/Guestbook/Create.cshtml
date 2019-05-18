@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Guestbook";
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+
+<body>
+    <section id="about_main">
+        <div class="container">
+            <article id="a1">
+                <h1 class="page-title">About PhotosXD</h1>
+                <p>
+                    This is the section where you can find information about us. However there is none. So that's too bad. Maybe use google or something, maybe not. I doubt google will help you in this case. If you are here you know why.
+                </p>
+                <p>
+                    Our core focus is on providing you with the best possible photography on the internet. Some would say that is too cocky and it may be true. Fax.
+                </p>
+                <p>Feel free to email us at bestphotosever@nomail.com or use the form on the right.</p>
+            </article>
+
+            <aside id="form1">
+                <div class="bkgnd">
+                    <h3>We'd like to know your opinion!</h3>
+                    <form class="review" name="review" id="f1" method="post" action="">
+                        @if (ViewBag.UserName != null)
+                        {
+                            string fullName = ViewBag.UserName;
+                            string[] uName = fullName.Split('@');
+                            <div>
+                                @*<input type="text" name="Name" placeholder="First Name OR Username" value=@uName[0] required disabled>*@
+                                <input type="text" name="Name" placeholder="Email" value=@ViewBag.UserName required disabled>
+                            </div>
+                        }
+                        @if (ViewBag.UserName == null)
+                        {
+                            @*<div>
+                                 <input type="text" name="Name" placeholder="First Name OR Username" value=@ViewBag.UserName required>
+                             </div>*@
+                            <div>
+                                <input type="text" name="Name" placeholder="Email" value=@ViewBag.UserName required>
+                            </div>
+                            <div>
+                                <input type="text" name="lname" placeholder="Last Name | Optional">
+                            </div>
+                        }
+                        <div>
+                            <textarea name="Message" maxlength="70" placeholder="Review/Suggestions/Comment" required></textarea>
+                        </div>
+                        <button class="button" id="s1" type="submit">Submit</button>
+                        <div class="details">By submitting your opinion you subscribe to our newsletter.</div>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+</body>
+</html>
+
+<style>
+    #s1 {
+        background-color: darkorange;
+        padding: 15px 56px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 3px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 2px solid slategray;
+    }
+
+   #s1:hover {
+       background-color: orangered;
+       color: darkseagreen;
+       border: 2px solid darkslategray;
+   }
+</style>

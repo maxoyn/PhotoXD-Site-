@@ -1,0 +1,86 @@
+﻿@model PhotoXD.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+<div id="login">
+    <h4>Register here:</h4>
+    <section id="loginForm">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <ul id="labels">
+            <li>
+                Email:
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </li>
+
+            <li>
+                Password:
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </li>
+
+            <li>
+                Confirm Password:
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger"})
+            </li>
+        </ul>
+        <input type="submit" id="s1" value="Register" />
+    </section>
+</div>
+}
+
+    <style>
+        #labels {
+            width: 30%;
+            margin-left: 33%;
+        }
+
+        #login {
+            background-color: slategray;
+            padding-top: 50px;
+            padding-bottom: 120px;
+            display: block;
+            text-align: center;
+        }
+
+        #loginForm {
+            margin: auto;
+            width: 50%;
+            background-color: darkslategray;
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-bottom: 2px;
+        }
+
+        #s1 {
+            background-color: darkorange;
+            padding: 15px 56px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 3px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 2px solid slategray;
+        }
+
+            #s1:hover {
+                background-color: orangered;
+                color: darkseagreen;
+                border: 2px solid darkslategray;
+            }
+    </style>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

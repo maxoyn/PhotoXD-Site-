@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Delete";
+}
+
+<div id="login">
+    <section id="loginForm">
+        <p>Are you sure you want to delete:</p>
+        <h id="h11">@Model.Message</h>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <p>
+                <input id="s1" value="No, go back!" onclick="history.go(-1);" />
+                <input type="submit" id="s1" name="Delete" value="Yes, Delete" />
+                <br />
+                @Html.ActionLink("Go back", "IndexAsync")
+            </p>
+        }
+    </section>
+</div>
+
+<style>
+    #login {
+        background-color: slategray;
+        padding-top: 50px;
+        padding-bottom: 120px;
+    }
+
+    #loginForm {
+        margin: auto;
+        width: 50%;
+        background-color: darkslategray;
+        text-align: center;
+        color: white;
+    }
+
+    ul {
+        list-style-type: none;
+        margin-bottom: 2px;
+    }
+
+    #s1 {
+        background-color: darkorange;
+        padding: 15px 56px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 3px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 2px solid slategray;
+    }
+
+        #s1:hover {
+            background-color: orangered;
+            color: darkseagreen;
+            border: 2px solid darkslategray;
+        }
+
+    #h11 {
+        color: orange;
+        font-style: italic;
+    }
+</style>

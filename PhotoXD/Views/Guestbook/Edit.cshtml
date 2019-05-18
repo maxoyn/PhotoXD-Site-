@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+
+<div id="login">
+    <section id="loginForm">
+        <form method="post" action="">
+            <fieldset>
+                <dt>Name:</dt>
+                <dd>@Model.Name</dd>
+                <dt>Date added:</dt>
+                <dd>@Model.DateAdded</dd>
+                <br />
+                Please edit your message:
+                <br />
+                <textarea name="Message" rows="5" cols="10" maxlength="70">@Model.Message</textarea>
+                <input id="s1" value="No, go back!" onclick="history.go(-1);" />
+                <input type="submit" id="s1" value="Save changes" />
+            </fieldset>
+            <br />
+        </form>
+    </section>
+</div>
+
+<style>
+    #login {
+        background-color: slategray;
+        padding-top: 50px;
+        padding-bottom: 120px;
+    }
+
+    #loginForm {
+        margin: auto;
+        width: 50%;
+        background-color: darkslategray;
+        text-align: center;
+        color: white;
+    }
+
+    ul {
+        list-style-type: none;
+        margin-bottom: 2px;
+    }
+    textarea{
+        color: black;
+    }
+    #s1 {
+        background-color: darkorange;
+        padding: 15px 56px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 3px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 2px solid slategray;
+    }
+
+        #s1:hover {
+            background-color: orangered;
+            color: darkseagreen;
+            border: 2px solid darkslategray;
+        }
+</style>

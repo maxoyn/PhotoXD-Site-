@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Comments By Date ASYNC";
+}
+
+<div id="com">
+    <center>
+        <br />
+        <h2>Comments until date:</h2>
+        <p>
+            <button class="button" id="s1" onclick="window.location.href='/Home/Gallery'">Back to our gallery</button>
+            <button class="button" id="s1" onclick="window.location.href='/Guestbook/Create'">Go leave a comment</button>
+        </p>
+    </center>
+    @foreach (var entry in ViewBag.Entries)
+    {
+        <section>
+            <header>
+                <h id="h11">@entry.Message</h>
+                @if (User.Identity.Name == entry.Name || User.IsInRole("Admin"))
+                {
+                    <br />
+                    <button class="button" id="s1" onclick="window.location.href='@Url.Action("Edit", "Guestbook", new { id = entry.Id}, null )'">Edit</button>
+                    <button class="button" id="s1" onclick="window.location.href='@Url.Action("Delete", "Guestbook", new { id = entry.Id })'">Delete</button>
+                    //<a href="@Url.Action("Edit", "Guestbook", new { id = entry.Id}, null )">Edit</a>
+                    //<a href="@Url.Action("Delete", "Guestbook", new { id = entry.Id })">Delete</a>
+                }
+            </header>
+            <p>
+                @{
+                    string email = entry.Name;
+                    string[] uName = email.Split('@');
+                }
+                Posted by <i>
+                    <a href="@Url.Action("UserComments", "Guestbook", new { id = entry.Id}, null )">@uName[0]</a>
+                </i> on <a href="@Url.Action("CommentsByDateAsync", "Guestbook", new { userDate = entry.DateAdded.ToString("dd-MM-yyy")})">@entry.DateAdded.ToLongDateString()</a>
+
+            </p>
+        </section>
+    }
+</div>

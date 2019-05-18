@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Comments By Date";
+}
+<div id="com">
+    <center>
+        <br />
+        <h2>Comments until date:</h2>
+        <p>
+            <a href="/Home/Gallery">Back to our gallery</a>
+        </p>
+    </center>
+    @foreach (var entry in ViewBag.Entries)
+    {
+        <section>
+            <header>
+                <h id="h11">@entry.Message</h>
+                @if (User.Identity.Name == entry.Name)
+                {
+                    <br />
+                    <a href="@Url.Action("Edit", "Guestbook", new { id = entry.Id}, null )">Edit</a>
+                }
+            </header>
+            <p>
+                Posted by <i>
+                    <a href="@Url.Action("UserComments", "Guestbook", new { id = entry.Id}, null )">@entry.Name</a>
+                </i> on @entry.DateAdded.ToLongDateString()
+            </p>
+        </section>
+    }
+</div>
+
+<style>
+    #com {
+        margin: auto;
+        text-align: center;
+        width: 50%;
+        max-width: 50%;
+        color: red;
+    }
+
+    #h11 {
+    }
+</style>

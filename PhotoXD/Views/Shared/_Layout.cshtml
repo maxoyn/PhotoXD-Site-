@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./Content/Site.css">
+    <meta charset="utf-8" />
+    <title>PhotosXD | @ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="sname">
+                    <h1>PhotosXD</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="@(ViewBag.Title == "Home" ? "current" : "")">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="@(ViewBag.Title == "Guestbook" ? "current" : "")">@Html.ActionLink("About", "Create", "Guestbook")</li>
+                        <li class="@(ViewBag.Title == "Gallery" ? "current" : "")">@Html.ActionLink("Gallery", "gallery", "Home")</li>
+                        <li class="@(ViewBag.Title == "Comments" ? "current" : "")">@Html.ActionLink("Reviews", "IndexAsync", "Guestbook")</li>
+                        <li>@Html.Partial("_LoginPartial")</li>
+                    </ul>
+                </nav>
+            </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - PhotosXD</p>
+        <img src="~/Images/tw.png" width="25" height="25">
+        <img src="~/Images/in.png" width="25" height="25">
+        <img src="~/Images/ig.png" width="25" height="25">
+        <img src="~/Images/yt.png" width="25" height="25">
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

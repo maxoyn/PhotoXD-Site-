@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Comments";
+}
+<div id="com">
+    <center>
+        <br />
+        <h2>Some of the recent reviews we have recieved:</h2>
+        <p>
+            <a href="/Home/Gallery">Back to our gallery</a>
+            <br />
+            <a href="/Guestbook/Create">Leave a comment</a>
+        </p>
+    </center>
+    @foreach (var entry in ViewBag.Entries)
+    {
+        <section>
+            <header>
+                <h id="h11">@entry.Message</h>
+                @if (User.Identity.Name == entry.Name)
+                {
+                    <br />
+                    <button class="button" id="s1" onclick="window.location.href='@Url.Action("Edit", "Guestbook", new { id = entry.Id}, null )'">Edit</button>
+                    <button class="button" id="s1" onclick="window.location.href='@Url.Action("Delete", "Guestbook", new { id = entry.Id })'">Delete</button>
+                    //<a href="@Url.Action("Edit", "Guestbook", new { id = entry.Id}, null )">Edit</a>
+                    //<a href="@Url.Action("Delete", "Guestbook", new { id = entry.Id })">Delete</a>
+                }
+            </header>
+            <p>
+                Posted by <i>
+                    <a href="@Url.Action("UserComments", "Guestbook", new { id = entry.Id}, null )">@entry.Name</a>
+                </i> on <a href="@Url.Action("CommentsByDateAsync", "Guestbook", new { userDate = entry.DateAdded.ToString("dd-MM-yyy")})">@entry.DateAdded.ToLongDateString()</a>
+            </p>
+        </section>
+    }
+</div>
+
+@*<style>
+    #com {
+        margin: auto;
+        text-align: center;
+        width: 50%;
+        max-width: 50%;
+        color: red;
+    }
+
+    #h11 {
+    }
+
+    #s1 {
+        background-color: darkorange;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 3px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 2px solid slategray;
+    }
+
+        #s1:hover {
+            background-color: orangered;
+            color: darkseagreen;
+            border: 2px solid darkslategray;
+        }
+</style>*@
