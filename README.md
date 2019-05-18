@@ -5,7 +5,7 @@ It has the following features:
  * Responsive design (bootstrap)
  * CRUD with database
  * Account roles (normal user and admin)
- * Async calls - creating, deleting, and showing comments by user or date
+ * Async calls - creating, deleting, and showing comments by user or date (sorted)
  
 **Main page**
 <img src="https://github.com/maxoyn/PhotoXD/blob/master/screenshots/main_page.png">
@@ -20,5 +20,5 @@ It has the following features:
 </br>
 
 **Admin comments view**
-<img src="https://github.com/maxoyn/PhotoXD/blob/master/screenshots/admin.png">
+<img src="https://github.com/maxoyn/PhotoXD/blob/master/screenshots/admin_comments_veiw.png">
 </br>
